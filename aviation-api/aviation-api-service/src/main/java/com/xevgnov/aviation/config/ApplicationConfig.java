@@ -20,7 +20,7 @@ public class ApplicationConfig {
     @Bean
     public CacheManager cacheManager() {
         ConcurrentMapCacheManager cacheManager = new ConcurrentMapCacheManager("airports");
-        cacheManager.setAllowNullValues(false);
+        cacheManager.setAllowNullValues(true);
         return cacheManager;
     }
 
