@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  title: AviationAPI (partial) - Airports
+  version: "1.0.0"
+  description: Minimal OpenAPI spec for AviationAPI /v1/airports?apt={identifier}
+servers:
+  - url: https://api.aviationapi.com/v1
+paths:
+  /airports:
+    get:
+      summary: Get airport details by identifier (apt query)
+      parameters:
+        - name: apt
+          in: query
+          description: "Airport identifier (ICAO typically, IATA may also be accepted). Example: KJFK or JFK"
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Airport information (array)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Airport'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+components:
+  schemas:
+    Airport:
+      type: object
+      properties:
+        site_number:
+          type: string
+          example: 15793.*A
+        facility_name:
+          type: string
+          example: JOHN F KENNEDY INTL
+        faa_ident:
+          type: string
+          example: JFK
+        icao_ident:
+          type: string
+          example: KJFK
+        region:
+          type: string
+          example: AEA
+        state:
+          type: string
+          example: NY
+        city:
+          type: string
+          example: New York
+        manager:
+          type: string
+          example: CHARLES EVERETT
+        manager_phone:
+          type: string
+          example: (718) 244-3501
+        latitude:
+           type: string
+           example: 40-38-23.7400N
+        latitude_sec:
+          type: string
+          example: 146303.7400N
+        longitude:
+          type: string
+          example: 073-46-43.2930W
+        longitude_sec:
+          type: string
+          example: 265603.2930W
+        elevation:
+          type: string
+          example: 13
+        magnetic_variation:
+          type: string
+          example: 13W
+        status:
+          type: string
+          example: O
+        certification_typedate:
+           type: string
+           example: I E S 05/1973
+        effective_date:
+           type: string
+           example: 11/04/2021
