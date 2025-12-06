@@ -62,14 +62,14 @@ Demonstrates how to use a 3rd party system efficiently: focused on scalability, 
   cd aviation-system/aviation-api
     ``` 
 - Run the tests with Maven
-- ```bash
+  ```bash
   mvn clean test
   ```
 #### To run application locally without Docker
 - Go to the project directory, i.e:
--  ```bash
+  ```bash
   cd aviation-system/aviation-api
-    ```     
+  ```     
 - Build the application with Maven
    ```bash
   mvn clean install
@@ -84,6 +84,7 @@ Demonstrates how to use a 3rd party system efficiently: focused on scalability, 
     ```
 - The actuator health endpoint will be accessible at `http://localhost:8092/actuator/health`
 - API endpoint will be accessible at `http://localhost:8092/v1/airports/KJFK`
+- You can also use aviation-system\aviation-api\aviation-api-service\src\test\resources\GetAirport.http file to test the API in your IDE
 
 ## Architecture & Design
 ### Overview
